@@ -1,14 +1,19 @@
 package AccountsA;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Scanner;
 import java.util.Set;
 
 public class Service {
+	
 		static int num = 1;
-
-		HashMap<Integer, Account> accountDB = new HashMap<Integer, Account>();
+		Map<Integer, Account> accountDB;
+		
+		public Service() {
+			accountDB = new HashMap<Integer, Account>();
+		}
 		
 		public void addAccount(String firstName, String lastName, String accountNo) {
 			Account account = new Account(firstName, lastName, accountNo);
@@ -21,6 +26,13 @@ public class Service {
 			account.toString();
 		}
 		
+		public void removeAccount(Integer accountToRemove) {
+			boolean accountExists = accountDB.containsKey(accountToRemove);
+			if (accountExists) {
+				accountDB.remove(accountToRemove);
+			}
+		}
+
 
 		public void userDetails(int userInput) {
 			Set<Entry<Integer, Account>> hashSet=accountDB.entrySet();
@@ -32,4 +44,11 @@ public class Service {
 			
 			}
 		}
+
+		public Object getAccountDB() {
+			// TODO Auto-generated method stub
+			return accountDB;
+		}
+
+
 }
