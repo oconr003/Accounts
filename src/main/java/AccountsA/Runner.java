@@ -1,5 +1,6 @@
 package AccountsA;
 
+import java.util.HashMap;
 import java.util.Scanner;
 import com.google.gson.Gson;
 import AccountsA.Service;
@@ -22,6 +23,13 @@ public class Runner {
 		Gson gson = new Gson();
 		String json = gson.toJson(service.accountDB);
 		System.out.println(json);
+		
+		HashMap accountDB = new HashMap<Integer, Account>();
+		service.findUsers("Joe", accountDB);
+		
+		service.displayUsers();
+		
+		
 
 	}
 }

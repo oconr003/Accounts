@@ -46,9 +46,8 @@ public class Service {
 			
 			}
 		}
-
-		public Object getAccountDB() {
-			// TODO Auto-generated method stub
+// Need to return map not object!
+		public Map getAccountDB() {
 			return accountDB;
 		}
 
@@ -69,10 +68,11 @@ public class Service {
 			
 			while(it.hasNext()) {
 				Map.Entry me = (Map.Entry)it.next();
-				System.out.println("Key: " + me.getKey() + "Value: " + me.getValue());
-		
+				System.out.println("Key: " + me.getKey() + "Value: " + me.getValue());	
 			}
-			
 		}
-
+		
+		public int findUsers2 (String firstName, Map<Integer, Account> accountDB) {
+			return (int)accountDB.values().stream().filter(i -> firstName.equals(i.getFirstName())).count();
+		}
 }
