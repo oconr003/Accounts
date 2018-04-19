@@ -1,6 +1,8 @@
 package AccountsA;
 
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Scanner;
@@ -50,5 +52,27 @@ public class Service {
 			return accountDB;
 		}
 
+		public int findUsers(String firstName, HashMap<Integer, Account> accountDB) {
+			int count = 0;
+			for (Account account : accountDB.values()) {
+				if (account.getFirstName().equals(firstName)) {
+					count++;
+					System.out.println("Number of " + firstName + " :" + count);
+				}
+			} return count;
+		}
+		
+		
+		public void displayUsers() {
+			Set entrySet = accountDB.entrySet();
+			Iterator it = entrySet.iterator();
+			
+			while(it.hasNext()) {
+				Map.Entry me = (Map.Entry)it.next();
+				System.out.println("Key: " + me.getKey() + "Value: " + me.getValue());
+		
+			}
+			
+		}
 
 }

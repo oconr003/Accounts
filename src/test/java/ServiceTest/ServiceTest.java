@@ -22,11 +22,11 @@ public class ServiceTest {
 		util = new JSONUtil();
 	}
 	
-	@Test
-	public void addAcountTest() {
-		service.addAccount("Joe", "Bloggs", "123");
-		Assert.assertEquals(service.getAccountDB().size(), 1);
-	}
+//	@Test
+//	public void addAcountTest() {
+//		service.addAccount("Joe", "Bloggs", "123");
+//		Assert.assertEquals(service.getAccountDB().size(), 1);
+//	}
 	
 	@Test
 	public void jsonConversionTest() {
